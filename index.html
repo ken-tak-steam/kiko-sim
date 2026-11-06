@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#4338ca"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="機構シミュレータ君">
+<link rel="manifest" href="./manifest.webmanifest"><link rel="apple-touch-icon" href="./icon-192.png">
+    <title>機構シミュレータ君</title>
+    <style>
+*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button,select{cursor:pointer}button{border:0;color:inherit}input,select{max-width:100%}h1,h2,p{margin-top:0}h1{margin-bottom:0}canvas{display:block}button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}a{color:#4338ca}pre{white-space:pre-wrap} .flex{display:flex}.block{display:block}.hidden{display:none!important}.flex-col{flex-direction:column}.flex-1{flex:1 1 0%;min-height:0;min-width:0}.items-center{align-items:center}.items-start{align-items:flex-start}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.relative{position:relative}.absolute{position:absolute}.fixed{position:fixed}.inset-0{inset:0}.left-1\/2{left:50%}.-translate-x-1\/2{transform:translateX(-50%)}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.w-full{width:100%}.h-full{height:100%}.h-1\/2{height:50%}.h-screen{height:100vh}.max-w-md{max-width:28rem}.max-h-\[85vh\]{max-height:85vh}.text-right{text-align:right}.font-bold{font-weight:700}.font-semibold{font-weight:600}.font-mono{font-family:monospace}.uppercase{text-transform:uppercase}.leading-relaxed{line-height:1.65}.cursor-pointer{cursor:pointer}.cursor-grab{cursor:grab}.cursor-not-allowed{cursor:not-allowed}.opacity-50{opacity:.5}.rounded{border-radius:4px}.rounded-md{border-radius:6px}.rounded-lg{border-radius:8px}.rounded-xl{border-radius:12px}.rounded-full{border-radius:999px}.border{border:1px solid #cbd5e1}.border-l{border-left:1px solid #e2e8f0}.border-b{border-bottom:1px solid #e2e8f0}.border-t{border-top:1px solid #e2e8f0}.shadow,.shadow-md,.shadow-lg,.shadow-2xl{box-shadow:0 3px 12px #0f172a20}.shadow-inner{box-shadow:inset 0 2px 4px #0f172a15}.bg-white{background:#fff}.bg-white\/90{background:#fffffff2}.bg-black\/50{background:#0008}.text-white{color:#fff}.transition{transition:background-color .15s}.tracking-wider{letter-spacing:.05em}.p-0\.5{padding:0.125rem}.p-1{padding:0.25rem}.p-1\.5{padding:0.375rem}.p-2{padding:0.5rem}.p-2\.5{padding:0.625rem}.p-3{padding:0.75rem}.p-4{padding:1.0rem}.p-6{padding:1.5rem}.p-8{padding:2.0rem}.p-10{padding:2.5rem}.p-16{padding:4.0rem}.p-20{padding:5.0rem}.p-32{padding:8.0rem}.px-0\.5{padding-left:0.125rem;padding-right:0.125rem}.px-1{padding-left:0.25rem;padding-right:0.25rem}.px-1\.5{padding-left:0.375rem;padding-right:0.375rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1.0rem;padding-right:1.0rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2.0rem;padding-right:2.0rem}.px-10{padding-left:2.5rem;padding-right:2.5rem}.px-16{padding-left:4.0rem;padding-right:4.0rem}.px-20{padding-left:5.0rem;padding-right:5.0rem}.px-32{padding-left:8.0rem;padding-right:8.0rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1.0rem;padding-bottom:1.0rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.py-8{padding-top:2.0rem;padding-bottom:2.0rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-16{padding-top:4.0rem;padding-bottom:4.0rem}.py-20{padding-top:5.0rem;padding-bottom:5.0rem}.py-32{padding-top:8.0rem;padding-bottom:8.0rem}.pl-0\.5{padding-left:0.125rem}.pl-1{padding-left:0.25rem}.pl-1\.5{padding-left:0.375rem}.pl-2{padding-left:0.5rem}.pl-2\.5{padding-left:0.625rem}.pl-3{padding-left:0.75rem}.pl-4{padding-left:1.0rem}.pl-6{padding-left:1.5rem}.pl-8{padding-left:2.0rem}.pl-10{padding-left:2.5rem}.pl-16{padding-left:4.0rem}.pl-20{padding-left:5.0rem}.pl-32{padding-left:8.0rem}.pb-0\.5{padding-bottom:0.125rem}.pb-1{padding-bottom:0.25rem}.pb-1\.5{padding-bottom:0.375rem}.pb-2{padding-bottom:0.5rem}.pb-2\.5{padding-bottom:0.625rem}.pb-3{padding-bottom:0.75rem}.pb-4{padding-bottom:1.0rem}.pb-6{padding-bottom:1.5rem}.pb-8{padding-bottom:2.0rem}.pb-10{padding-bottom:2.5rem}.pb-16{padding-bottom:4.0rem}.pb-20{padding-bottom:5.0rem}.pb-32{padding-bottom:8.0rem}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-1\.5{margin-top:0.375rem}.mt-2{margin-top:0.5rem}.mt-2\.5{margin-top:0.625rem}.mt-3{margin-top:0.75rem}.mt-4{margin-top:1.0rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2.0rem}.mt-10{margin-top:2.5rem}.mt-16{margin-top:4.0rem}.mt-20{margin-top:5.0rem}.mt-32{margin-top:8.0rem}.mb-0\.5{margin-bottom:0.125rem}.mb-1{margin-bottom:0.25rem}.mb-1\.5{margin-bottom:0.375rem}.mb-2{margin-bottom:0.5rem}.mb-2\.5{margin-bottom:0.625rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1.0rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2.0rem}.mb-10{margin-bottom:2.5rem}.mb-16{margin-bottom:4.0rem}.mb-20{margin-bottom:5.0rem}.mb-32{margin-bottom:8.0rem}.gap-0\.5{gap:0.125rem}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-4{gap:1.0rem}.gap-6{gap:1.5rem}.gap-8{gap:2.0rem}.gap-10{gap:2.5rem}.gap-16{gap:4.0rem}.gap-20{gap:5.0rem}.gap-32{gap:8.0rem}.w-0\.5{width:0.125rem}.w-1{width:0.25rem}.w-1\.5{width:0.375rem}.w-2{width:0.5rem}.w-2\.5{width:0.625rem}.w-3{width:0.75rem}.w-4{width:1.0rem}.w-6{width:1.5rem}.w-8{width:2.0rem}.w-10{width:2.5rem}.w-16{width:4.0rem}.w-20{width:5.0rem}.w-32{width:8.0rem}.h-0\.5{height:0.125rem}.h-1{height:0.25rem}.h-1\.5{height:0.375rem}.h-2{height:0.5rem}.h-2\.5{height:0.625rem}.h-3{height:0.75rem}.h-4{height:1.0rem}.h-6{height:1.5rem}.h-8{height:2.0rem}.h-10{height:2.5rem}.h-16{height:4.0rem}.h-20{height:5.0rem}.h-32{height:8.0rem}.top-0\.5{top:0.125rem}.top-1{top:0.25rem}.top-1\.5{top:0.375rem}.top-2{top:0.5rem}.top-2\.5{top:0.625rem}.top-3{top:0.75rem}.top-4{top:1.0rem}.top-6{top:1.5rem}.top-8{top:2.0rem}.top-10{top:2.5rem}.top-16{top:4.0rem}.top-20{top:5.0rem}.top-32{top:8.0rem}.right-0\.5{right:0.125rem}.right-1{right:0.25rem}.right-1\.5{right:0.375rem}.right-2{right:0.5rem}.right-2\.5{right:0.625rem}.right-3{right:0.75rem}.right-4{right:1.0rem}.right-6{right:1.5rem}.right-8{right:2.0rem}.right-10{right:2.5rem}.right-16{right:4.0rem}.right-20{right:5.0rem}.right-32{right:8.0rem}.bottom-0\.5{bottom:0.125rem}.bottom-1{bottom:0.25rem}.bottom-1\.5{bottom:0.375rem}.bottom-2{bottom:0.5rem}.bottom-2\.5{bottom:0.625rem}.bottom-3{bottom:0.75rem}.bottom-4{bottom:1.0rem}.bottom-6{bottom:1.5rem}.bottom-8{bottom:2.0rem}.bottom-10{bottom:2.5rem}.bottom-16{bottom:4.0rem}.bottom-20{bottom:5.0rem}.bottom-32{bottom:8.0rem}.left-0\.5{left:0.125rem}.left-1{left:0.25rem}.left-1\.5{left:0.375rem}.left-2{left:0.5rem}.left-2\.5{left:0.625rem}.left-3{left:0.75rem}.left-4{left:1.0rem}.left-6{left:1.5rem}.left-8{left:2.0rem}.left-10{left:2.5rem}.left-16{left:4.0rem}.left-20{left:5.0rem}.left-32{left:8.0rem}.space-x-2 > * + *{margin-left:0.5rem}.space-y-2 > * + *{margin-top:0.5rem}.space-x-3 > * + *{margin-left:0.75rem}.space-y-3 > * + *{margin-top:0.75rem}.space-x-4 > * + *{margin-left:1.0rem}.space-y-4 > * + *{margin-top:1.0rem}.z-10{z-index:10}.z-20{z-index:20}.z-50{z-index:50}.text-xs{font-size:.75rem}.text-sm{font-size:.875rem}.text-base{font-size:1rem}.text-lg{font-size:1.125rem}.text-xl{font-size:1.25rem}.text-2xl{font-size:1.5rem}.text-\[10px\]{font-size:10px}.bg-slate-50{background-color:#f8fafc}.text-slate-50{color:#f8fafc}.border-slate-50{border-color:#f8fafc}.accent-slate-50{accent-color:#f8fafc}.bg-slate-100{background-color:#f1f5f9}.text-slate-100{color:#f1f5f9}.border-slate-100{border-color:#f1f5f9}.accent-slate-100{accent-color:#f1f5f9}.bg-slate-200{background-color:#e2e8f0}.text-slate-200{color:#e2e8f0}.border-slate-200{border-color:#e2e8f0}.accent-slate-200{accent-color:#e2e8f0}.bg-slate-300{background-color:#cbd5e1}.text-slate-300{color:#cbd5e1}.border-slate-300{border-color:#cbd5e1}.accent-slate-300{accent-color:#cbd5e1}.bg-slate-400{background-color:#94a3b8}.text-slate-400{color:#94a3b8}.border-slate-400{border-color:#94a3b8}.accent-slate-400{accent-color:#94a3b8}.bg-slate-500{background-color:#64748b}.text-slate-500{color:#64748b}.border-slate-500{border-color:#64748b}.accent-slate-500{accent-color:#64748b}.bg-slate-600{background-color:#475569}.text-slate-600{color:#475569}.border-slate-600{border-color:#475569}.accent-slate-600{accent-color:#475569}.bg-slate-700{background-color:#334155}.text-slate-700{color:#334155}.border-slate-700{border-color:#334155}.accent-slate-700{accent-color:#334155}.bg-slate-800{background-color:#1e293b}.text-slate-800{color:#1e293b}.border-slate-800{border-color:#1e293b}.accent-slate-800{accent-color:#1e293b}.bg-slate-900{background-color:#0f172a}.text-slate-900{color:#0f172a}.border-slate-900{border-color:#0f172a}.accent-slate-900{accent-color:#0f172a}.bg-indigo-50{background-color:#eef2ff}.text-indigo-50{color:#eef2ff}.border-indigo-50{border-color:#eef2ff}.accent-indigo-50{accent-color:#eef2ff}.bg-indigo-100{background-color:#e0e7ff}.text-indigo-100{color:#e0e7ff}.border-indigo-100{border-color:#e0e7ff}.accent-indigo-100{accent-color:#e0e7ff}.bg-indigo-200{background-color:#c7d2fe}.text-indigo-200{color:#c7d2fe}.border-indigo-200{border-color:#c7d2fe}.accent-indigo-200{accent-color:#c7d2fe}.bg-indigo-500{background-color:#6366f1}.text-indigo-500{color:#6366f1}.border-indigo-500{border-color:#6366f1}.accent-indigo-500{accent-color:#6366f1}.bg-indigo-600{background-color:#4f46e5}.text-indigo-600{color:#4f46e5}.border-indigo-600{border-color:#4f46e5}.accent-indigo-600{accent-color:#4f46e5}.bg-indigo-700{background-color:#4338ca}.text-indigo-700{color:#4338ca}.border-indigo-700{border-color:#4338ca}.accent-indigo-700{accent-color:#4338ca}.bg-indigo-900{background-color:#312e81}.text-indigo-900{color:#312e81}.border-indigo-900{border-color:#312e81}.accent-indigo-900{accent-color:#312e81}.bg-amber-50{background-color:#fffbeb}.text-amber-50{color:#fffbeb}.border-amber-50{border-color:#fffbeb}.accent-amber-50{accent-color:#fffbeb}.bg-amber-200{background-color:#fde68a}.text-amber-200{color:#fde68a}.border-amber-200{border-color:#fde68a}.accent-amber-200{accent-color:#fde68a}.bg-amber-300{background-color:#fcd34d}.text-amber-300{color:#fcd34d}.border-amber-300{border-color:#fcd34d}.accent-amber-300{accent-color:#fcd34d}.bg-amber-400{background-color:#fbbf24}.text-amber-400{color:#fbbf24}.border-amber-400{border-color:#fbbf24}.accent-amber-400{accent-color:#fbbf24}.bg-amber-500{background-color:#f59e0b}.text-amber-500{color:#f59e0b}.border-amber-500{border-color:#f59e0b}.accent-amber-500{accent-color:#f59e0b}.bg-amber-600{background-color:#d97706}.text-amber-600{color:#d97706}.border-amber-600{border-color:#d97706}.accent-amber-600{accent-color:#d97706}.bg-amber-900{background-color:#78350f}.text-amber-900{color:#78350f}.border-amber-900{border-color:#78350f}.accent-amber-900{accent-color:#78350f}.bg-emerald-50{background-color:#ecfdf5}.text-emerald-50{color:#ecfdf5}.border-emerald-50{border-color:#ecfdf5}.accent-emerald-50{accent-color:#ecfdf5}.bg-emerald-200{background-color:#a7f3d0}.text-emerald-200{color:#a7f3d0}.border-emerald-200{border-color:#a7f3d0}.accent-emerald-200{accent-color:#a7f3d0}.bg-emerald-500{background-color:#10b981}.text-emerald-500{color:#10b981}.border-emerald-500{border-color:#10b981}.accent-emerald-500{accent-color:#10b981}.bg-emerald-600{background-color:#059669}.text-emerald-600{color:#059669}.border-emerald-600{border-color:#059669}.accent-emerald-600{accent-color:#059669}.bg-emerald-900{background-color:#064e3b}.text-emerald-900{color:#064e3b}.border-emerald-900{border-color:#064e3b}.accent-emerald-900{accent-color:#064e3b}.bg-rose-500{background-color:#f43f5e}.text-rose-500{color:#f43f5e}.border-rose-500{border-color:#f43f5e}.accent-rose-500{accent-color:#f43f5e}.bg-rose-700{background-color:#be123c}.text-rose-700{color:#be123c}.border-rose-700{border-color:#be123c}.accent-rose-700{accent-color:#be123c}@media(min-width:640px){.sm\:inline{display:inline!important}}@media(min-width:768px){.md\:flex-row{flex-direction:row}.md\:h-full{height:100%}.md\:w-80{width:20rem;flex-shrink:0}.md\:text-xl{font-size:1.25rem}.md\:text-sm{font-size:.875rem}.md\:text-base{font-size:1rem}}@media(min-width:1280px){.lg\:w-96{width:24rem}}.fa-solid{display:inline-block;font-style:normal;line-height:1;text-align:center;min-width:1em}.fa-gears::before{content:"⚙"}.fa-download::before{content:"↓"}.fa-upload::before{content:"↑"}.fa-circle-question::before{content:"?"}.fa-triangle-exclamation::before{content:"⚠"}.fa-magnifying-glass-plus::before{content:"+"}.fa-magnifying-glass-minus::before{content:"−"}.fa-play::before{content:"▶"}.fa-pause::before{content:"Ⅱ"}.fa-rotate-left::before{content:"↺"}.fa-chart-line::before{content:"↗"}.fa-lightbulb::before{content:"◇"}.fa-xmark::before{content:"×"}.fa-graduation-cap::before{content:"◇"}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            touch-action: manipulation;
+        }
+        /* 方眼紙背景のスタイル */
+        .grid-bg {
+            background-color: #ffffff;
+            background-image: 
+                linear-gradient(to right, rgba(200, 220, 240, 0.6) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(200, 220, 240, 0.6) 1px, transparent 1px),
+                linear-gradient(to right, rgba(100, 150, 200, 0.2) 2px, transparent 2px),
+                linear-gradient(to bottom, rgba(100, 150, 200, 0.2) 2px, transparent 2px);
+            background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
+        }
+        body {height:100dvh;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);}
+        button, select, input[type=number], input[type=range] {min-height:44px;}
+        #simCanvas {touch-action:none;}
+        header {flex-wrap:wrap;gap:8px;flex-shrink:0;}
+        dialog {max-width:680px;width:90%;max-height:85dvh;overflow:auto;padding:24px;border:1px solid #cbd5e1;border-radius:16px;}
+        dialog::backdrop {background:#0008;}
+.offline-bar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:2px 12px;background:#eef2ff;color:#312e81;font-size:12px;flex-shrink:0}.offline-bar button{background:transparent;color:#312e81;text-decoration:underline}.animation-controls{max-width:calc(100% - 16px);flex-wrap:wrap;justify-content:center;gap:8px}.animation-controls>*{margin-left:0!important}dialog h2{font-size:20px}#helpModal{z-index:50}@media(max-width:767px){header h1{font-size:16px}header{padding:8px}.animation-controls{bottom:8px;padding:4px 8px}.offline-bar{font-size:11px}}
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 h-screen flex flex-col overflow-hidden">
+
+    <!-- ヘッダー -->
+    <header class="bg-indigo-700 text-white p-3 shadow-md flex justify-between items-center z-10">
+        <div class="flex items-center space-x-3">
+            <i class="fa-solid fa-gears text-2xl text-amber-300"></i>
+            <h1 class="font-bold text-lg md:text-xl">機構シミュレータ君</h1>
+            <span class="text-xs bg-indigo-900 px-2 py-1 rounded text-indigo-200 hidden sm:inline">方眼紙＆割ピン工作対応 (mm表記)</span>
+        </div>
+        
+        <!-- JSON 入出力・ヘルプ -->
+        <div class="flex items-center space-x-2">
+            <button id="btnExport" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs md:text-sm px-3 py-1.5 rounded flex items-center gap-1 shadow transition">
+                <i class="fa-solid fa-download"></i> 保存(JSON)
+            </button>
+            <label class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs md:text-sm px-3 py-1.5 rounded flex items-center gap-1 shadow cursor-pointer transition">
+                <i class="fa-solid fa-upload"></i> 読込
+                <input type="file" id="btnImport" accept=".json" class="hidden">
+            </label>
+            <button id="openAbout" class="px-3 rounded bg-indigo-900 text-sm">ライセンス情報</button>
+            <button id="btnHelp" class="bg-amber-500 hover:bg-amber-400 text-slate-900 text-xs md:text-sm font-bold px-3 py-1.5 rounded flex items-center gap-1 shadow transition">
+                <i class="fa-solid fa-circle-question"></i> 使い方
+            </button>
+        </div>
+    </header>
+
+    <div class="offline-bar"><span id="offlineStatus" role="status" aria-live="polite">オフライン利用の準備中…</span><button id="installHelp">iPadへの追加方法</button></div>
+    <!-- メインコンテンツ (左右分割) -->
+    <div class="flex-1 flex flex-col md:flex-row overflow-hidden relative">
+
+        <!-- キャンバス領域 (左 / 上) -->
+        <div class="flex-1 relative flex flex-col items-center justify-center bg-slate-200 p-2 overflow-hidden">
+            
+            <!-- メッセージ表示エリア -->
+            <div id="errorBanner" class="hidden absolute top-4 left-4 right-4 bg-rose-500 text-white p-3 rounded-lg shadow-lg font-bold text-sm md:text-base flex items-center justify-between z-20 animate-bounce">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-triangle-exclamation text-xl"></i>
+                    <span id="errorMessage">回転中に無理な力がかかります！（突っかかり動作不能）</span>
+                </div>
+                <span class="text-xs bg-rose-700 px-2 py-1 rounded">各節の長さを調整してください</span>
+            </div>
+
+            <!-- キャンバス操作用 コントロール (ズーム・位置リセット) -->
+            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg shadow border border-slate-300 flex flex-col z-10 overflow-hidden text-slate-700">
+                <button id="btnZoomIn" class="p-2 hover:bg-slate-100 border-b border-slate-200 transition" title="拡大">
+                    <i class="fa-solid fa-magnifying-glass-plus"></i>
+                </button>
+                <button id="btnZoomOut" class="p-2 hover:bg-slate-100 border-b border-slate-200 transition" title="縮小">
+                    <i class="fa-solid fa-magnifying-glass-minus"></i>
+                </button>
+                <button id="btnResetView" class="p-2 hover:bg-slate-100 transition text-xs font-bold" title="画面位置のリセット">
+                    100%
+                </button>
+            </div>
+
+            <!-- キャンバス本体 -->
+            <div class="w-full h-full relative flex items-center justify-center cursor-grab active:cursor-grabbing">
+                <canvas id="simCanvas" class="grid-bg rounded-lg shadow-inner border border-slate-300 w-full h-full"></canvas>
+            </div>
+
+            <!-- アニメーション コントロール -->
+            <div class="animation-controls absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-slate-300 flex items-center space-x-4 z-10">
+                <button aria-label="再生・一時停止" id="btnPlayPause" class="w-10 h-10 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full flex items-center justify-center shadow transition text-lg">
+                    <i id="playIcon" class="fa-solid fa-play"></i>
+                </button>
+                <button id="btnReset" class="w-8 h-8 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-full flex items-center justify-center transition" title="角度を初期化">
+                    <i class="fa-solid fa-rotate-left"></i>
+                </button>
+                <div class="flex items-center space-x-2 text-xs font-semibold text-slate-600">
+                    <span>速度:</span>
+                    <input type="range" id="speedRange" min="0.2" max="3" step="0.1" value="1" class="w-20 accent-indigo-600">
+                </div>
+                <div class="flex items-center space-x-3 text-xs text-slate-600 border-l pl-3">
+                    <label class="flex items-center gap-1 cursor-pointer">
+                        <input type="checkbox" id="chkTraceA" checked class="accent-indigo-600 rounded">
+                        <span>軌跡A(紫)</span>
+                    </label>
+                    <label class="flex items-center gap-1 cursor-pointer">
+                        <input type="checkbox" id="chkTraceB" checked class="accent-amber-500 rounded">
+                        <span>軌跡B(橙)</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- パラメータ調整パネル (右 / 下) -->
+        <div class="w-full md:w-80 lg:w-96 bg-white border-l border-slate-200 flex flex-col h-1/2 md:h-full z-10 shadow-lg">
+            
+            <!-- タブ切り替え: 機構選択 -->
+            <div class="p-3 bg-slate-50 border-b border-slate-200">
+                <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">機構を選択</label>
+                <select id="mechanismType" class="w-full bg-white border border-slate-300 font-bold text-slate-700 py-2 px-3 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <option value="4bar">4節リンク機構 (4-Bar Linkage)</option>
+                    <option value="crank-slider">往復スライダークランク機構</option>
+                    <option value="cam">カム機構 (Cam Mechanism)</option>
+                </select>
+            </div>
+
+            <!-- パラメータ入力領域 (スクロール可能) -->
+            <div class="flex-1 overflow-y-auto p-4 space-y-4" id="controlsContainer">
+                <!-- JavaScriptで機構に応じたフォームが生成されます -->
+            </div>
+
+            <!-- カム機構用 1周期変位グラフエリア (カム機構選択時のみ表示) -->
+            <div id="camGraphContainer" class="hidden p-3 bg-slate-50 border-t border-slate-200">
+                <div class="flex justify-between items-center mb-1">
+                    <span class="text-xs font-bold text-slate-700 flex items-center gap-1">
+                        <i class="fa-solid fa-chart-line text-indigo-600"></i> カム変位グラフ (1周期)
+                    </span>
+                    <span class="text-[10px] text-slate-500">横軸: 角度 / 縦軸: 高さ(mm)</span>
+                </div>
+                <div class="w-full h-32 bg-white rounded border border-slate-300 p-1 relative">
+                    <canvas id="camGraphCanvas" class="w-full h-full block"></canvas>
+                </div>
+            </div>
+
+            <!-- 方眼紙工作アドバイス -->
+            <div class="p-3 bg-indigo-50 border-t border-indigo-100 text-xs text-indigo-900 flex items-start gap-2">
+                <i class="fa-solid fa-lightbulb text-indigo-600 text-base mt-0.5"></i>
+                <div>
+                    <span class="font-bold block">方眼紙への展開ヒント:</span>
+                    表示したmm値を定規で方眼紙に写し、割ピンの穴位置をマークしよう。画面のマス目は実寸ではありません。
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 使い方モーダル -->
+    <div id="helpModal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-md w-full p-6 shadow-2xl relative max-h-[85vh] overflow-y-auto">
+            <button aria-label="使い方を閉じる" id="btnCloseHelp" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <h2 class="text-xl font-bold text-indigo-900 mb-4 border-b pb-2 flex items-center gap-2">
+                <i class="fa-solid fa-graduation-cap"></i> 授業での使い方
+            </h2>
+            <div class="space-y-3 text-sm text-slate-600 leading-relaxed">
+                <p><strong>1. 機構を選ぶ:</strong> 右上のメニューから学習する機構を選択します。</p>
+                <p><strong>2. 節（リンク）の長さを変える:</strong> スライダーやミリメートル(mm)の数値入力で各節の長さを調整します。（調整時は自動的に停止・初期位置に戻ります）</p>
+                <p><strong>3. 動きを確かめる:</strong> 再生ボタンを押して動作を確認します。各節の運動の軌跡（紫・オレンジ）が記録されます。</p>
+                <p><strong>4. 画面の操作:</strong> マウスホイールや右上ボタンで拡大・縮小、ドラッグで表示位置を移動できます。</p>
+                <p><strong>5. 保存する:</strong> 自分で設計した数値を「保存(JSON)」ボタンで保存し、授業のまとめや次回に「読込」できます。</p>
+            </div>
+            <button id="btnConfirmHelp" class="mt-6 w-full bg-indigo-600 text-white font-bold py-2 rounded-lg hover:bg-indigo-700 transition">
+                理解しました
+            </button>
+        </div>
+    </div>
+
+<dialog id="aboutDialog" aria-labelledby="aboutTitle"><h2 id="aboutTitle">機構シミュレータ君について</h2><p>© 2026 タカクラケンタロウ</p><pre style="white-space:pre-wrap;font:inherit">Copyright (c) 2026 Takakura Kentaro
+All rights reserved except as expressly permitted below.
+
+本ソフトウェアの著作権は、著作者に帰属します。
+以下の条件を満たす場合、本ソフトウェアの使用、複製、改変および再配布を無償で許可します。
+
+1. 著作者表示
+再配布・改変版の公開時には、原著作者名、出典URLおよび本ライセンスを明示してください。
+
+2. 非商用利用
+本ソフトウェア自体の販売、商用製品への組み込み、その他の営利目的での利用は禁止します。
+ただし、学校教育、有料・無料の講習会、研修会で教材として利用することは認めます。
+
+3. 改変・再配布
+改変および再配布を認めます。改変した場合は、その旨を明示してください。
+
+4. 免責事項
+本ソフトウェアは現状有姿で提供されます。著作者は、使用によって生じた損害について、法令で認められる範囲で責任を負いません。
+
+出典URL: https://github.com/ken-tak-steam/kiko-sim
+
+</pre><h3>通信とオフライン利用</h3><p>CSS・アイコン・計算処理・利用条件をHTMLに内蔵しています。外部ライブラリやフォントの取得、入力データの外部送信、広告・解析機能はありません。Web版は初回取得と更新時に同じサイトへ通信します。初回の保存完了後はオフラインで起動できます。</p><p>この版には第三者ライブラリを同梱していません。</p><p>学習用の簡易モデルです。機械設計の安全性を保証しません。画面のmm表示は計算上の寸法で、実寸表示ではありません。</p><p><a href="https://github.com/ken-tak-steam/kiko-sim" target="_blank" rel="noopener noreferrer">ソースコード</a></p><form method="dialog"><button autofocus>閉じる</button></form></dialog>
+<dialog id="installDialog" aria-labelledby="installTitle"><h2 id="installTitle">iPadでオフライン利用する</h2><ol><li>接続中にSafariでこのアプリを開きます。</li><li>画面上に「オフライン起動の準備完了」と出るまで待ちます。</li><li>Safariの共有メニューから「ホーム画面に追加」を選びます。</li><li>ホーム画面のアイコンから一度開き、準備完了を確認します。</li><li>機内モードにして、アイコンから起動できることを確認します。</li></ol><p>初回の取得にはインターネット接続が必要です。Safariのサイトデータを消した場合は再取得してください。設計は「保存(JSON)」でファイルに残せます。</p><form method="dialog"><button autofocus>閉じる</button></form></dialog>
+    <script>
+        document.getElementById('openAbout').addEventListener('click', () => document.getElementById('aboutDialog').showModal());
+        // --- スケール定義 (1mm = 1.5px / 1マス 20px = 10mm換算とする) ---
+        const MM_TO_PX = 1.5;
+
+        // --- 部品・リンクの色定義 (UIおよびアニメーション共通) ---
+        const LINK_COLORS = {
+            crank: { bg: 'bg-indigo-50', border: 'border-indigo-200', text: 'text-indigo-900', stroke: '#4f46e5', accent: 'accent-indigo-600', badge: 'bg-indigo-600' },   // 紫 (原動節/クランク)
+            coupler: { bg: 'bg-emerald-50', border: 'border-emerald-200', text: 'text-emerald-900', stroke: '#10b981', accent: 'accent-emerald-600', badge: 'bg-emerald-600' }, // 緑 (中間節/結合リンク/連動棒)
+            rocker: { bg: 'bg-amber-50', border: 'border-amber-200', text: 'text-amber-900', stroke: '#f59e0b', accent: 'accent-amber-500', badge: 'bg-amber-500' },    // オレンジ (従動節/てこ/フォロワー)
+            frame: { bg: 'bg-slate-100', border: 'border-slate-300', text: 'text-slate-800', stroke: '#64748b', accent: 'accent-slate-500', badge: 'bg-slate-600' }      // グレー (固定節/フレーム/ガイド)
+        };
+
+        // --- アプリケーションの状態管理 ---
+        const state = {
+            type: '4bar',        // 4bar, crank-slider, cam
+            isPlaying: false,    // 初期状態は停止状態
+            speed: 1.0,
+            angle: 0,           // 原動軸（クランク）の角度 (rad)
+            showTraceA: true,   // 点A (クランク/原動節端点) の軌跡
+            showTraceB: true,   // 点B (従動節端点/スライダー) の軌跡
+            traceHistoryA: [],
+            traceHistoryB: [],
+            hasError: false,
+            errorMessage: '',
+            
+            // ズーム・パン状態
+            zoom: 1.0,
+            panX: 0,
+            panY: 0,
+            isDragging: false,
+            dragStartX: 0,
+            dragStartY: 0,
+
+            // 4節リンクのパラメータ (単位: mm)
+            fourBar: {
+                d: 120, // 固定節 (フレーム)
+                a: 40,  // 原動節 (クランク)
+                b: 110, // 中間節 (結合リンク)
+                c: 90   // 従動節 (てこ/節)
+            },
+
+            // 往復スライダークランクのパラメータ (単位: mm)
+            sliderCrank: {
+                r: 40,  // 原動節 (クランク半径)
+                l: 110, // 中間節 (連動棒)
+                offset: 0 // オフセット (スライド軸の偏心)
+            },
+
+            // カム機構のパラメータ (単位: mm)
+            cam: {
+                baseR: 35,       // カム基礎円半径
+                camType: 'egg',  // egg(卵型カム), eccentric(偏心円カム), snail(かたつむりカム), heart(ハート型カム)
+                lift: 25,        // 変位量 (リフト)
+                followerL: 80    // 従動子 (フォロワー長)
+            }
+        };
+
+        // --- DOM要素 ---
+        const canvas = document.getElementById('simCanvas');
+        const ctx = canvas.getContext('2d');
+        const camGraphContainer = document.getElementById('camGraphContainer');
+        const camGraphCanvas = document.getElementById('camGraphCanvas');
+        const camGraphCtx = camGraphCanvas ? camGraphCanvas.getContext('2d') : null;
+
+        const errorBanner = document.getElementById('errorBanner');
+        const errorMessageEl = document.getElementById('errorMessage');
+        const controlsContainer = document.getElementById('controlsContainer');
+        const mechanismSelect = document.getElementById('mechanismType');
+        const btnPlayPause = document.getElementById('btnPlayPause');
+        const playIcon = document.getElementById('playIcon');
+        const btnReset = document.getElementById('btnReset');
+        const speedRange = document.getElementById('speedRange');
+        const chkTraceA = document.getElementById('chkTraceA');
+        const chkTraceB = document.getElementById('chkTraceB');
+        const btnExport = document.getElementById('btnExport');
+        const btnImport = document.getElementById('btnImport');
+        const btnHelp = document.getElementById('btnHelp');
+        const helpModal = document.getElementById('helpModal');
+        const btnCloseHelp = document.getElementById('btnCloseHelp');
+        const btnConfirmHelp = document.getElementById('btnConfirmHelp');
+        
+        // ズームボタン要素
+        const btnZoomIn = document.getElementById('btnZoomIn');
+        const btnZoomOut = document.getElementById('btnZoomOut');
+        const btnResetView = document.getElementById('btnResetView');
+
+        // --- キャンバス リサイズ処理 ---
+        function resizeCanvas() {
+            const rect = canvas.parentElement.getBoundingClientRect();
+            canvas.width = rect.width;
+            canvas.height = rect.height;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // --- ズーム・パン イベント制御 ---
+        canvas.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            const zoomFactor = 1.1;
+            if (e.deltaY < 0) {
+                state.zoom = Math.min(state.zoom * zoomFactor, 3.0);
+            } else {
+                state.zoom = Math.max(state.zoom / zoomFactor, 0.4);
+            }
+        }, { passive: false });
+
+        canvas.addEventListener('pointerdown', (e) => {
+            if (e.button === 0) { // 左クリック
+                canvas.setPointerCapture(e.pointerId);
+                state.isDragging = true;
+                state.dragStartX = e.clientX - state.panX;
+                state.dragStartY = e.clientY - state.panY;
+            }
+        });
+
+        canvas.addEventListener('pointermove', (e) => {
+            if (state.isDragging) {
+                state.panX = e.clientX - state.dragStartX;
+                state.panY = e.clientY - state.dragStartY;
+            }
+        });
+
+        canvas.addEventListener('pointerup', () => {
+            state.isDragging = false;
+        });
+
+        canvas.addEventListener('pointercancel', () => { state.isDragging = false; });
+
+        btnZoomIn.addEventListener('click', () => {
+            state.zoom = Math.min(state.zoom * 1.2, 3.0);
+        });
+        btnZoomOut.addEventListener('click', () => {
+            state.zoom = Math.max(state.zoom / 1.2, 0.4);
+        });
+        btnResetView.addEventListener('click', () => {
+            state.zoom = 1.0;
+            state.panX = 0;
+            state.panY = 0;
+        });
+
+        // 寸法調整時などのシミュレーション停止・初期化処理
+        function stopAndResetAnimation() {
+            state.isPlaying = false;
+            state.angle = 0;
+            playIcon.className = 'fa-solid fa-play';
+            clearTrace();
+            updateControlsState();
+        }
+
+        // 動作状況に応じたUI要素の活性/非活性切り替え
+        function updateControlsState() {
+            const inputs = controlsContainer.querySelectorAll('input, select');
+            inputs.forEach(input => {
+                input.disabled = state.isPlaying;
+                if (state.isPlaying) {
+                    input.classList.add('opacity-50', 'cursor-not-allowed');
+                } else {
+                    input.classList.remove('opacity-50', 'cursor-not-allowed');
+                }
+            });
+        }
+
+        function clearTrace() {
+            state.traceHistoryA = [];
+            state.traceHistoryB = [];
+        }
+
+        // --- スライダー＆数値入力セットの生成（スコープ参照エラー防止のため定義を上部に配置） ---
+        function createSliderInput(id, labelText, value, min, max, onChange, theme) {
+            const container = document.createElement('div');
+            container.className = `flex flex-col gap-1.5 p-3 rounded-lg border ${theme.bg} ${theme.border}`;
+
+            const header = document.createElement('div');
+            header.className = 'flex justify-between items-center';
+            header.innerHTML = `
+                <div class="flex items-center gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full ${theme.badge}"></span>
+                    <label class="text-xs font-bold ${theme.text}">${labelText}</label>
+                </div>
+                <div class="flex items-center gap-1">
+                    <input type="number" id="num_${id}" value="${value}" min="${min}" max="${max}" class="w-16 text-right border border-slate-300 rounded px-1 text-sm font-mono font-bold ${theme.text} bg-white">
+                    <span class="text-xs text-slate-500 font-bold">mm</span>
+                </div>
+            `;
+
+            const slider = document.createElement('input');
+            slider.type = 'range';
+            slider.id = `slide_${id}`;
+            slider.min = min;
+            slider.max = max;
+            slider.value = value;
+            slider.className = `w-full ${theme.accent} cursor-pointer`;
+
+            container.appendChild(header);
+            container.appendChild(slider);
+            controlsContainer.appendChild(container);
+
+            const numInput = container.querySelector(`#num_${id}`);
+
+            // 入力時の処理（停止＆初期状態復帰）
+            const handleInputChange = (val) => {
+                stopAndResetAnimation();
+                onChange(val);
+            };
+
+            slider.addEventListener('input', (e) => {
+                const val = parseFloat(e.target.value);
+                numInput.value = val;
+                handleInputChange(val);
+            });
+
+            numInput.addEventListener('change', (e) => {
+                let val = parseFloat(e.target.value);
+                if (isNaN(val)) val = min;
+                val = Math.max(min, Math.min(max, val));
+                numInput.value = val;
+                slider.value = val;
+                handleInputChange(val);
+            });
+        }
+
+        // --- パラメータ入力フォームの動的生成 ---
+        function renderControls() {
+            controlsContainer.innerHTML = '';
+
+            if (state.type === 'cam') {
+                camGraphContainer.classList.remove('hidden');
+            } else {
+                camGraphContainer.classList.add('hidden');
+            }
+
+            if (state.type === '4bar') {
+                createSliderInput('a', '原動節 [クランク] (a)', state.fourBar.a, 10, 100, (val) => state.fourBar.a = val, LINK_COLORS.crank);
+                createSliderInput('b', '中間節 [結合リンク] (b)', state.fourBar.b, 20, 200, (val) => state.fourBar.b = val, LINK_COLORS.coupler);
+                createSliderInput('c', '従動節 [てこ/節] (c)', state.fourBar.c, 20, 200, (val) => state.fourBar.c = val, LINK_COLORS.rocker);
+                createSliderInput('d', '固定節 [フレーム] (d)', state.fourBar.d, 30, 250, (val) => state.fourBar.d = val, LINK_COLORS.frame);
+            } else if (state.type === 'crank-slider') {
+                createSliderInput('r', '原動節 [クランク] (r)', state.sliderCrank.r, 10, 100, (val) => state.sliderCrank.r = val, LINK_COLORS.crank);
+                createSliderInput('l', '中間節 [連動棒] (l)', state.sliderCrank.l, 30, 200, (val) => state.sliderCrank.l = val, LINK_COLORS.coupler);
+                createSliderInput('offset', 'スライド軸偏心 [オフセット]', state.sliderCrank.offset, -50, 50, (val) => state.sliderCrank.offset = val, LINK_COLORS.frame);
+            } else if (state.type === 'cam') {
+                // 代表的な4種類の平面カム選択
+                const typeDiv = document.createElement('div');
+                typeDiv.className = `flex flex-col gap-1 p-3 rounded-lg border ${LINK_COLORS.crank.bg} ${LINK_COLORS.crank.border}`;
+                typeDiv.innerHTML = `
+                    <label class="text-xs font-bold ${LINK_COLORS.crank.text}">カムの形状 (代表的平面カム4種)</label>
+                    <select id="camTypeSelect" class="bg-white border border-slate-300 rounded p-1.5 text-sm font-bold text-slate-700 focus:ring-2 focus:ring-indigo-500">
+                        <option value="egg" ${state.cam.camType === 'egg' ? 'selected' : ''}>1. 卵型カム (Egg Cam)</option>
+                        <option value="eccentric" ${state.cam.camType === 'eccentric' ? 'selected' : ''}>2. 偏心円カム (Eccentric Cam)</option>
+                        <option value="snail" ${state.cam.camType === 'snail' ? 'selected' : ''}>3. かたつむりカム (Snail Cam)</option>
+                        <option value="heart" ${state.cam.camType === 'heart' ? 'selected' : ''}>4. ハート型カム (Heart Cam)</option>
+                    </select>
+                `;
+                controlsContainer.appendChild(typeDiv);
+                document.getElementById('camTypeSelect').addEventListener('change', (e) => {
+                    stopAndResetAnimation();
+                    state.cam.camType = e.target.value;
+                });
+
+                createSliderInput('baseR', '基礎円半径 (R)', state.cam.baseR, 20, 70, (val) => state.cam.baseR = val, LINK_COLORS.crank);
+                createSliderInput('lift', '変位量 [リフト] (h)', state.cam.lift, 5, 50, (val) => state.cam.lift = val, LINK_COLORS.rocker);
+            }
+
+            updateControlsState();
+        }
+
+        // --- 物理・幾何計算エンジン ---
+
+        function solve4Bar(angle) {
+            const { a, b, c, d } = state.fourBar;
+            
+            const A0 = { x: 0, y: 0 };
+            const B0 = { x: d * MM_TO_PX, y: 0 };
+
+            const aPx = a * MM_TO_PX;
+            const bPx = b * MM_TO_PX;
+            const cPx = c * MM_TO_PX;
+
+            const A = {
+                x: aPx * Math.cos(angle),
+                y: aPx * Math.sin(angle)
+            };
+
+            const distAB0 = Math.hypot(B0.x - A.x, B0.y - A.y);
+
+            if (distAB0 > bPx + cPx || distAB0 < Math.abs(bPx - cPx) || distAB0 === 0) {
+                return { valid: false, message: 'リンクの長さに無理があり突っかかります！(三角不等式エラー)' };
+            }
+
+            const alpha = Math.atan2(B0.y - A.y, B0.x - A.x);
+            const cosBeta = (bPx * bPx + distAB0 * distAB0 - cPx * cPx) / (2 * bPx * distAB0);
+            
+            if (Math.abs(cosBeta) > 1) {
+                return { valid: false, message: '動作限界角度に達しました。' };
+            }
+
+            const beta = Math.acos(cosBeta);
+            
+            const B = {
+                x: A.x + bPx * Math.cos(alpha - beta),
+                y: A.y + bPx * Math.sin(alpha - beta)
+            };
+
+            return { valid: true, A0, B0, A, B };
+        }
+
+        function solveSliderCrank(angle) {
+            const { r, l, offset } = state.sliderCrank;
+
+            const rPx = r * MM_TO_PX;
+            const lPx = l * MM_TO_PX;
+            const offsetPx = offset * MM_TO_PX;
+
+            const A0 = { x: 0, y: 0 };
+            const A = {
+                x: rPx * Math.cos(angle),
+                y: rPx * Math.sin(angle)
+            };
+
+            const sliderY = offsetPx;
+            const dy = A.y - sliderY;
+
+            if (Math.abs(dy) > lPx) {
+                return { valid: false, message: 'クランクの回転に対して中間節（連動棒）が短すぎます！' };
+            }
+
+            const dx = Math.sqrt(lPx * lPx - dy * dy);
+            const B = {
+                x: A.x + dx,
+                y: sliderY
+            };
+
+            return { valid: true, A0, A, B };
+        }
+
+        // 代表的な4種類の平面カムの動径計算 (極座標 φ: ローカル角度)
+        function getCamRadius(phi) {
+            const { baseR, camType, lift } = state.cam;
+            let rMM = baseR;
+            const normPhi = (phi % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI);
+
+            if (camType === 'egg') {
+                // 1. 卵型カム: 下部が幅広で上部が滑らかに細い本物の卵形状
+                const sin = Math.sin(normPhi);
+                rMM = baseR + lift * Math.pow((1 - sin) / 2, 1.8);
+            } else if (camType === 'eccentric') {
+                // 2. 偏心円カム: 正円の中心から回転軸をずらした完全な正円
+                const e = lift / 2;
+                const R = baseR + e;
+                rMM = -e * Math.sin(normPhi) + Math.sqrt(Math.max(0, R * R - e * e * Math.cos(normPhi) * Math.cos(normPhi)));
+            } else if (camType === 'snail') {
+                // 3. かたつむりカム: 反時計回りでゆっくり持ち上げ、段差で垂直落下
+                rMM = baseR + lift * (1 - normPhi / (2 * Math.PI));
+            } else if (camType === 'heart') {
+                // 4. ハート型カム (線形ハート): 等速直線運動を生む伝統的ハート型
+                const normHeart = (normPhi + Math.PI / 2) % (2 * Math.PI);
+                const t = normHeart / Math.PI; // 0 to 2
+                if (t <= 1) {
+                    rMM = baseR + lift * t;
+                } else {
+                    rMM = baseR + lift * (2 - t);
+                }
+            }
+            return rMM * MM_TO_PX;
+        }
+
+        // カムとフォロワーの運動計算 (真上の接触位置における半径算出)
+        function solveCam(angle) {
+            const center = { x: 0, y: 0 };
+            
+            // カムが角度 angle 回転している時、真上(x=0, y<0)でフォロワーに接するカム部位のローカル角度は -PI/2 - angle
+            const contactTheta = -Math.PI / 2 - angle;
+            const rPx = getCamRadius(contactTheta);
+
+            // 従動子 (フォロワー) の先端接点 (x=0, y = -rPx)
+            const followerTip = {
+                x: 0,
+                y: -rPx
+            };
+
+            const followerTop = {
+                x: 0,
+                y: -rPx - (state.cam.followerL * MM_TO_PX)
+            };
+
+            return { valid: true, center, followerTip, followerTop, rPx };
+        }
+
+        // カムの1周期変位グラフ（変位線図）を描画する関数
+        function drawCamGraph() {
+            if (state.type !== 'cam' || !camGraphCanvas || !camGraphCtx) return;
+
+            const rect = camGraphCanvas.parentElement.getBoundingClientRect();
+            if (camGraphCanvas.width !== rect.width || camGraphCanvas.height !== rect.height) {
+                camGraphCanvas.width = rect.width;
+                camGraphCanvas.height = rect.height;
+            }
+
+            const w = camGraphCanvas.width;
+            const h = camGraphCanvas.height;
+            const padding = { top: 15, bottom: 20, left: 30, right: 15 };
+            const graphW = w - padding.left - padding.right;
+            const graphH = h - padding.top - padding.bottom;
+
+            camGraphCtx.clearRect(0, 0, w, h);
+
+            // グリッドと軸の描画
+            camGraphCtx.strokeStyle = '#e2e8f0';
+            camGraphCtx.lineWidth = 1;
+
+            // 軸線
+            camGraphCtx.beginPath();
+            camGraphCtx.moveTo(padding.left, padding.top);
+            camGraphCtx.lineTo(padding.left, h - padding.bottom);
+            camGraphCtx.lineTo(w - padding.right, h - padding.bottom);
+            camGraphCtx.stroke();
+
+            // 横軸目盛り (0°, 180°, 360°)
+            camGraphCtx.fillStyle = '#64748b';
+            camGraphCtx.font = '10px sans-serif';
+            camGraphCtx.textAlign = 'center';
+            camGraphCtx.fillText('0°', padding.left, h - 5);
+            camGraphCtx.fillText('180°', padding.left + graphW / 2, h - 5);
+            camGraphCtx.fillText('360°', padding.left + graphW, h - 5);
+
+            // 縦軸目盛り (基礎円/最大リフト)
+            camGraphCtx.textAlign = 'right';
+            camGraphCtx.fillText(`${state.cam.baseR}`, padding.left - 4, h - padding.bottom);
+            camGraphCtx.fillText(`${state.cam.baseR + state.cam.lift}`, padding.left - 4, padding.top + 8);
+
+            // 1周期 (0〜2π) の変位カーブ描画
+            camGraphCtx.strokeStyle = '#f59e0b';
+            camGraphCtx.lineWidth = 2;
+            camGraphCtx.beginPath();
+
+            const minR = state.cam.baseR * MM_TO_PX;
+            const maxR = (state.cam.baseR + state.cam.lift) * MM_TO_PX;
+            const rangeR = maxR - minR || 1;
+
+            const samples = 100;
+            for (let i = 0; i <= samples; i++) {
+                const a = (i / samples) * Math.PI * 2;
+                // 角度 a におけるフォロワー接触高さ
+                const rPx = getCamRadius(-Math.PI / 2 - a);
+                const normH = (rPx - minR) / rangeR; // 0.0 〜 1.0
+
+                const gx = padding.left + (i / samples) * graphW;
+                const gy = (h - padding.bottom) - normH * graphH;
+
+                if (i === 0) camGraphCtx.moveTo(gx, gy);
+                else camGraphCtx.lineTo(gx, gy);
+            }
+            camGraphCtx.stroke();
+
+            // 現在地（1周期内のリアルタイム点）の描画
+            const currentAngleNorm = (state.angle % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2);
+            const currentRPx = getCamRadius(-Math.PI / 2 - currentAngleNorm);
+            const currentNormH = (currentRPx - minR) / rangeR;
+
+            const curGx = padding.left + (currentAngleNorm / (Math.PI * 2)) * graphW;
+            const curGy = (h - padding.bottom) - currentNormH * graphH;
+
+            // 垂直ガイド線
+            camGraphCtx.strokeStyle = 'rgba(239, 68, 68, 0.4)';
+            camGraphCtx.lineWidth = 1;
+            camGraphCtx.setLineDash([2, 2]);
+            camGraphCtx.beginPath();
+            camGraphCtx.moveTo(curGx, padding.top);
+            camGraphCtx.lineTo(curGx, h - padding.bottom);
+            camGraphCtx.stroke();
+            camGraphCtx.setLineDash([]);
+
+            // 現在地の赤点マーカー
+            camGraphCtx.fillStyle = '#ef4444';
+            camGraphCtx.strokeStyle = '#ffffff';
+            camGraphCtx.lineWidth = 2;
+            camGraphCtx.beginPath();
+            camGraphCtx.arc(curGx, curGy, 5, 0, Math.PI * 2);
+            camGraphCtx.fill();
+            camGraphCtx.stroke();
+        }
+
+        // --- 描画関数 ---
+
+        // 割ピン（Joint）の描画
+        function drawSplitPin(ctx, p, color = '#475569') {
+            ctx.save();
+            ctx.fillStyle = '#ffffff';
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 2.5;
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 7, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+
+            // 内側の穴（割りピン頭）
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 2.5, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.restore();
+        }
+
+        // 固定接地台座の描画
+        function drawGround(ctx, p, width = 24) {
+            ctx.save();
+            ctx.strokeStyle = LINK_COLORS.frame.stroke;
+            ctx.lineWidth = 2;
+            
+            // 支持三角
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p.x - 8, p.y + 10);
+            ctx.lineTo(p.x + 8, p.y + 10);
+            ctx.closePath();
+            ctx.stroke();
+
+            // ベース線
+            ctx.beginPath();
+            ctx.moveTo(p.x - width / 2, p.y + 10);
+            ctx.lineTo(p.x + width / 2, p.y + 10);
+            ctx.stroke();
+
+            // 斜線ハッチング
+            const count = 4;
+            const step = width / count;
+            for (let i = 0; i <= count; i++) {
+                const x = p.x - width / 2 + i * step;
+                ctx.beginPath();
+                ctx.moveTo(x, p.y + 10);
+                ctx.lineTo(x - 4, p.y + 16);
+                ctx.stroke();
+            }
+
+            ctx.restore();
+        }
+
+        // 直線リンクの描画
+        function drawLink(ctx, p1, p2, color, width = 14) {
+            const dx = p2.x - p1.x;
+            const dy = p2.y - p1.y;
+            const len = Math.hypot(dx, dy);
+            const angle = Math.atan2(dy, dx);
+
+            ctx.save();
+            ctx.translate(p1.x, p1.y);
+            ctx.rotate(angle);
+
+            // リンク本体
+            ctx.fillStyle = color;
+            ctx.strokeStyle = '#ffffff';
+            ctx.lineWidth = 1.5;
+
+            ctx.beginPath();
+            ctx.arc(0, 0, width / 2, Math.PI / 2, -Math.PI / 2);
+            ctx.lineTo(len, -width / 2);
+            ctx.arc(len, 0, width / 2, -Math.PI / 2, Math.PI / 2);
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.restore();
+        }
+
+        // メインの描画ループ
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // 座標変換の設定 (標準座標系, パン・ズーム対応)
+            ctx.save();
+            const centerX = canvas.width / 2 + state.panX;
+            const centerY = canvas.height / 2 + state.panY;
+
+            ctx.translate(centerX, centerY);
+            ctx.scale(state.zoom, state.zoom);
+
+            // 軌跡描画 (点A: クランク/原動節端点)
+            if (state.showTraceA && state.traceHistoryA.length > 1) {
+                ctx.save();
+                ctx.strokeStyle = LINK_COLORS.crank.stroke;
+                ctx.lineWidth = 2 / state.zoom;
+                ctx.setLineDash([3, 3]);
+                ctx.beginPath();
+                for (let i = 0; i < state.traceHistoryA.length; i++) {
+                    const p = state.traceHistoryA[i];
+                    if (i === 0) ctx.moveTo(p.x, p.y);
+                    else ctx.lineTo(p.x, p.y);
+                }
+                ctx.stroke();
+                ctx.restore();
+            }
+
+            // 軌跡描画 (点B: 従動節端点/スライダー/フォロワー)
+            if (state.showTraceB && state.traceHistoryB.length > 1) {
+                ctx.save();
+                ctx.strokeStyle = LINK_COLORS.rocker.stroke;
+                ctx.lineWidth = 2 / state.zoom;
+                ctx.setLineDash([4, 4]);
+                ctx.beginPath();
+                for (let i = 0; i < state.traceHistoryB.length; i++) {
+                    const p = state.traceHistoryB[i];
+                    if (i === 0) ctx.moveTo(p.x, p.y);
+                    else ctx.lineTo(p.x, p.y);
+                }
+                ctx.stroke();
+                ctx.restore();
+            }
+
+            // 機構の描画
+            if (state.type === '4bar') {
+                const res = solve4Bar(state.angle);
+                if (res.valid) {
+                    state.hasError = false;
+
+                    // 固定節 (フレーム)
+                    drawLink(ctx, res.A0, res.B0, LINK_COLORS.frame.stroke, 12);
+                    drawGround(ctx, res.A0);
+                    drawGround(ctx, res.B0);
+
+                    // 原動節 (クランク)
+                    drawLink(ctx, res.A0, res.A, LINK_COLORS.crank.stroke, 14);
+
+                    // 従動節 (てこ/節)
+                    drawLink(ctx, res.B0, res.B, LINK_COLORS.rocker.stroke, 14);
+
+                    // 中間節 (結合リンク)
+                    drawLink(ctx, res.A, res.B, LINK_COLORS.coupler.stroke, 14);
+
+                    // 接続部（割りピン）
+                    drawSplitPin(ctx, res.A0);
+                    drawSplitPin(ctx, res.B0);
+                    drawSplitPin(ctx, res.A);
+                    drawSplitPin(ctx, res.B);
+
+                    // 軌跡の追加
+                    if (state.isPlaying) {
+                        state.traceHistoryA.push(res.A);
+                        state.traceHistoryB.push(res.B);
+                        if (state.traceHistoryA.length > 300) {
+                            state.traceHistoryA.shift();
+                            state.traceHistoryB.shift();
+                        }
+                    }
+                } else {
+                    state.hasError = true;
+                    state.errorMessage = res.message;
+                }
+            } else if (state.type === 'crank-slider') {
+                const res = solveSliderCrank(state.angle);
+                if (res.valid) {
+                    state.hasError = false;
+
+                    // スライド用ガイド線
+                    ctx.save();
+                    ctx.strokeStyle = LINK_COLORS.frame.stroke;
+                    ctx.lineWidth = 1.5;
+                    ctx.setLineDash([6, 6]);
+                    ctx.beginPath();
+                    ctx.moveTo(-200, res.B.y);
+                    ctx.lineTo(300, res.B.y);
+                    ctx.stroke();
+                    ctx.restore();
+
+                    // 原動節 (クランク)
+                    drawLink(ctx, res.A0, res.A, LINK_COLORS.crank.stroke, 14);
+                    drawGround(ctx, res.A0);
+
+                    // 中間節 (連動棒)
+                    drawLink(ctx, res.A, res.B, LINK_COLORS.coupler.stroke, 14);
+
+                    // スライダー (ピストン)
+                    ctx.save();
+                    ctx.fillStyle = LINK_COLORS.rocker.stroke;
+                    ctx.strokeStyle = '#ffffff';
+                    ctx.lineWidth = 2;
+                    const sw = 40;
+                    const sh = 24;
+                    ctx.beginPath();
+                    ctx.roundRect(res.B.x - sw / 2, res.B.y - sh / 2, sw, sh, 4);
+                    ctx.fill();
+                    ctx.stroke();
+                    ctx.restore();
+
+                    // 接続部（割りピン）
+                    drawSplitPin(ctx, res.A0);
+                    drawSplitPin(ctx, res.A);
+                    drawSplitPin(ctx, res.B);
+
+                    // 軌跡追加
+                    if (state.isPlaying) {
+                        state.traceHistoryA.push(res.A);
+                        state.traceHistoryB.push(res.B);
+                        if (state.traceHistoryA.length > 300) {
+                            state.traceHistoryA.shift();
+                            state.traceHistoryB.shift();
+                        }
+                    }
+                } else {
+                    state.hasError = true;
+                    state.errorMessage = res.message;
+                }
+            } else if (state.type === 'cam') {
+                const res = solveCam(state.angle);
+                state.hasError = false;
+
+                // カム本体の描画 (カム極座標プロット + 回転 angle)
+                ctx.save();
+                ctx.fillStyle = LINK_COLORS.crank.stroke;
+                ctx.strokeStyle = '#312e81';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+
+                const steps = 180;
+                for (let i = 0; i <= steps; i++) {
+                    const phi = (i / steps) * Math.PI * 2;
+                    const rPx = getCamRadius(phi);
+                    const worldAngle = phi + state.angle;
+                    const x = rPx * Math.cos(worldAngle);
+                    const y = rPx * Math.sin(worldAngle);
+
+                    if (i === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                }
+                ctx.closePath();
+                ctx.fill();
+                ctx.stroke();
+                ctx.restore();
+
+                // カム中心軸
+                drawGround(ctx, res.center);
+                drawSplitPin(ctx, res.center);
+
+                // 従動子 (フォロワー / 棒)
+                ctx.save();
+                ctx.strokeStyle = LINK_COLORS.rocker.stroke;
+                ctx.lineWidth = 8;
+                ctx.lineCap = 'round';
+                ctx.beginPath();
+                ctx.moveTo(res.followerTip.x, res.followerTip.y);
+                ctx.lineTo(res.followerTop.x, res.followerTop.y);
+                ctx.stroke();
+
+                // 従動子先端ローラ
+                ctx.fillStyle = '#ffffff';
+                ctx.strokeStyle = LINK_COLORS.rocker.stroke;
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.arc(res.followerTip.x, res.followerTip.y, 5, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.stroke();
+
+                // ガイド (案内)
+                ctx.strokeStyle = LINK_COLORS.frame.stroke;
+                ctx.lineWidth = 3;
+                const guideY = (res.followerTip.y + res.followerTop.y) / 2;
+                ctx.beginPath();
+                ctx.moveTo(-15, guideY - 10);
+                ctx.lineTo(-8, guideY - 10);
+                ctx.moveTo(-15, guideY + 10);
+                ctx.lineTo(-8, guideY + 10);
+                ctx.moveTo(15, guideY - 10);
+                ctx.lineTo(8, guideY - 10);
+                ctx.moveTo(15, guideY + 10);
+                ctx.lineTo(8, guideY + 10);
+                ctx.stroke();
+                ctx.restore();
+
+                // 軌跡追加
+                if (state.isPlaying) {
+                    state.traceHistoryB.push({ ...res.followerTop });
+                    if (state.traceHistoryB.length > 300) state.traceHistoryB.shift();
+                }
+
+                // カム変位グラフの更新描画
+                drawCamGraph();
+            }
+
+            ctx.restore();
+
+            // エラー表示の更新
+            if (state.hasError) {
+                errorMessageEl.textContent = state.errorMessage;
+                errorBanner.classList.remove('hidden');
+            } else {
+                errorBanner.classList.add('hidden');
+            }
+        }
+
+        // --- アニメーションループ (デルタタイム補正・一定角速度制御) ---
+        let lastTime = performance.now();
+
+        function animate(now) {
+            const dt = Math.min((now - lastTime) / 1000, 0.1); // 秒単位の経過時間
+            lastTime = now;
+
+            if (state.isPlaying && !state.hasError) {
+                const speedMult = state.speed * 1.5;
+                state.angle += speedMult * dt;
+                if (state.angle > Math.PI * 2) {
+                    state.angle -= Math.PI * 2;
+                }
+            }
+
+            draw();
+            requestAnimationFrame(animate);
+        }
+
+        // --- UI イベントハンドラ ---
+
+        // 機構切り替え
+        mechanismSelect.addEventListener('change', (e) => {
+            state.type = e.target.value;
+            stopAndResetAnimation();
+            renderControls();
+        });
+
+        // 再生 / 停止
+        btnPlayPause.addEventListener('click', () => {
+            state.isPlaying = !state.isPlaying;
+            if (state.isPlaying) {
+                playIcon.className = 'fa-solid fa-pause';
+            } else {
+                playIcon.className = 'fa-solid fa-play';
+            }
+            updateControlsState();
+        });
+
+        // リセット
+        btnReset.addEventListener('click', () => {
+            stopAndResetAnimation();
+        });
+
+        // 速度変更
+        speedRange.addEventListener('input', (e) => {
+            state.speed = parseFloat(e.target.value);
+        });
+
+        // 軌跡表示チェック
+        chkTraceA.addEventListener('change', (e) => {
+            state.showTraceA = e.target.checked;
+        });
+        chkTraceB.addEventListener('change', (e) => {
+            state.showTraceB = e.target.checked;
+        });
+
+        // JSON エクスポート (保存)
+        btnExport.addEventListener('click', () => {
+            const saveData = {
+                type: state.type,
+                fourBar: state.fourBar,
+                sliderCrank: state.sliderCrank,
+                cam: state.cam,
+                timestamp: new Date().toISOString()
+            };
+            const jsonStr = JSON.stringify(saveData, null, 2);
+            const blob = new Blob([jsonStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `機構設計データ_${state.type}_${new Date().toLocaleDateString('ja-JP')}.json`;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            setTimeout(() => URL.revokeObjectURL(url), 60000);
+        });
+
+        function validateImport(data) {
+            if (!data || typeof data !== 'object' || !['4bar','crank-slider','cam'].includes(data.type)) throw new Error('機構の種類が不正です');
+            const limits = {fourBar:{a:[10,100],b:[20,200],c:[20,200],d:[30,250]},sliderCrank:{r:[10,100],l:[30,200],offset:[-50,50]},cam:{baseR:[20,70],lift:[5,50],followerL:[1,300]}};
+            const next = {type:data.type};
+            for (const [group, fields] of Object.entries(limits)) {
+                const input = data[group];
+                if (input === undefined) continue;
+                if (!input || typeof input !== 'object') throw new Error('設定が不正です');
+                next[group] = {...state[group]};
+                for (const [key,[min,max]] of Object.entries(fields)) {
+                    if (input[key] === undefined) continue;
+                    const value = input[key];
+                    if (typeof value !== 'number' || !Number.isFinite(value) || value < min || value > max) throw new Error('数値が範囲外です');
+                    next[group][key] = value;
+                }
+                if (group === 'cam' && input.camType !== undefined) {
+                    if (!['egg','eccentric','snail','heart'].includes(input.camType)) throw new Error('カムの種類が不正です');
+                    next.cam.camType = input.camType;
+                }
+            }
+            return next;
+        }
+
+        // JSON インポート (読込)
+        btnImport.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                try {
+                    const data = JSON.parse(event.target.result);
+                    const next = validateImport(data);
+                    Object.assign(state, next);
+
+                    mechanismSelect.value = state.type;
+                    stopAndResetAnimation();
+                    renderControls();
+                } catch (err) {
+                    alert('JSONファイルの読み込みに失敗しました。正しいフォーマットか確認してください。');
+                }
+            };
+            reader.readAsText(file);
+            e.target.value = ''; // ファイルリセット
+        });
+
+        // ヘルプモーダル
+        btnHelp.addEventListener('click', () => helpModal.classList.remove('hidden'));
+        btnCloseHelp.addEventListener('click', () => helpModal.classList.add('hidden'));
+        btnConfirmHelp.addEventListener('click', () => helpModal.classList.add('hidden'));
+
+
+        document.getElementById('installHelp').addEventListener('click', () => document.getElementById('installDialog').showModal());
+        async function prepareOffline() {
+            const status = document.getElementById('offlineStatus');
+            if (location.protocol === 'file:') { status.textContent = 'HTML単体・オフラインで利用できます'; return; }
+            if (!('serviceWorker' in navigator) || !window.isSecureContext) { status.textContent = 'オフライン起動の準備にはHTTPSで開いてください'; return; }
+            try {
+                await navigator.serviceWorker.register('./sw.js');
+                await navigator.serviceWorker.ready;
+                if (!navigator.serviceWorker.controller) {
+                    await new Promise(resolve => navigator.serviceWorker.addEventListener('controllerchange', resolve, {once:true}));
+                }
+                status.textContent = 'オフライン起動の準備完了';
+            } catch (error) { status.textContent = 'オフライン保存に失敗しました。接続中に再度開いてください'; }
+        }
+        prepareOffline();
+        new ResizeObserver(() => resizeCanvas()).observe(canvas.parentElement);
+
+        // --- 初期化起動 ---
+        renderControls();
+        requestAnimationFrame((time) => {
+            lastTime = time;
+            animate(time);
+        });
+    </script>
+</body>
+</html>
