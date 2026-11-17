@@ -1,4 +1,4 @@
-const CACHE = 'kiko-sim-offline-v1';
+const CACHE = 'kiko-sim-offline-v2';
 const FILES = ['./','./index.html','./download.html','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
 self.addEventListener('install', event => { event.waitUntil((async () => {const cache = await caches.open(CACHE);await cache.addAll(FILES);await self.skipWaiting();})()); });
 self.addEventListener('activate', event => {event.waitUntil((async () => {for(const name of await caches.keys())if(name.startsWith('kiko-sim-offline-') && name !== CACHE)await caches.delete(name);await self.clients.claim();})());});
